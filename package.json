@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"aos": "^2.3.4",
 		"dayjs": "^1.11.7",
 		"gsap": "^3.11.5",
 		"microcms-js-sdk": "^2.4.0"

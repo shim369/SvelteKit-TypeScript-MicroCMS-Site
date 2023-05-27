@@ -1,10 +1,13 @@
 <script lang="ts">
+    import AOS from 'aos';
+    import 'aos/dist/aos.css';
     import type { PageData } from "./$types";
-    import dayjs from "dayjs"
+    import dayjs from "dayjs";
     export let data: PageData;
-    import { onMount } from 'svelte';
+    import { onMount, beforeUpdate } from 'svelte';
     import { TweenMax, Expo } from "gsap";
     onMount(() => {
+        AOS.init();
         TweenMax.from('.cover', 1.5, {
             width: "100%",
             height: "100%",
@@ -91,6 +94,10 @@
             });
         }
     });
+
+    beforeUpdate(() => {
+        AOS.refresh();
+    });
 </script>
 <svelte:head>
     <title>Svelte Base</title>
@@ -142,7 +149,7 @@
         <div class="container">
         <h1>Skills</h1>
         <ul class="skills-detail">
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="Astro" width="100" height="100" src="/image/astro.webp">
                 </div>
@@ -151,7 +158,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="JavaScript" width="100" height="100" src="/image/js.webp">
                 </div>
@@ -160,7 +167,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="Next.js" width="100" height="100" src="/image/next.webp">
                 </div>
@@ -169,7 +176,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="Nuxt.js" width="100" height="100" src="/image/nuxt.webp">
                 </div>
@@ -178,7 +185,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="Python" width="100" height="100" src="/image/py.webp">
                 </div>
@@ -187,7 +194,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="Django" width="100" height="100" src="/image/django.webp">
                 </div>
@@ -196,7 +203,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="Newt" width="100" height="100" src="/image/newt.webp">
                 </div>
@@ -205,7 +212,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="0" class="aos-init aos-animate">
+            <li data-aos="fade-up">
                 <div class="skills-img">
                     <img alt="Figma" width="100" height="100" src="/image/figma.webp">
                 </div>
