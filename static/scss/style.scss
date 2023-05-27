@@ -22,6 +22,15 @@ body {
     position: relative;
 }
 
+.wrapper {
+    position: relative;
+}
+
+.cover {
+    opacity: 0;
+    position: absolute;
+    display: none;
+}
 
 .moon {
     background: var(--accent-color);
