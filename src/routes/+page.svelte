@@ -1,84 +1,86 @@
-<script>
-import { onMount } from 'svelte';
-import { TweenMax, Expo } from "gsap";
-onMount(() => {
-    TweenMax.from('.moon', .3, {
-        delay: 1.6,
-        width: "100%",
-        height: "100%",
-        background: "#eed770",
-        display: "flex",
-        zIndex: 999,
-        borderRadius: 0,
-        opacity: 1,
-        top: "0%",
-        left: "0%",
-        fontSize: "3em",
-        ease: Expo.easeInOut,
-    })
+<script lang="ts">
+    import type { PageData } from "./$types";
+    import dayjs from "dayjs"
+    export let data: PageData;
+    import { onMount } from 'svelte';
+    import { TweenMax, Expo } from "gsap";
+    onMount(() => {
+        TweenMax.from('.moon', .3, {
+            delay: 1.6,
+            width: "100%",
+            height: "100%",
+            background: "#eed770",
+            display: "flex",
+            zIndex: 999,
+            borderRadius: 0,
+            opacity: 1,
+            top: "0%",
+            left: "0%",
+            fontSize: "3em",
+            ease: Expo.easeInOut,
+        })
 
-    TweenMax.from('nav', .3, {
-        delay: 1.9,
-        opacity: 0,
-        y: 20,
-    })
+        TweenMax.from('nav', .3, {
+            delay: 1.9,
+            opacity: 0,
+            y: 20,
+        })
 
-    TweenMax.from('.moon-title', .3, {
-        delay: 1.6,
-        opacity: 1,
-        display: "block",
-    })
+        TweenMax.from('.moon-title', .3, {
+            delay: 1.6,
+            opacity: 1,
+            display: "block",
+        })
 
-    TweenMax.from('.moon-text', .3, {
-        delay: 1.9,
-        opacity: 0,
-        x: 20,
-        display: "none",
-        ease: Expo.easeInOut,
-    })
+        TweenMax.from('.moon-text', .3, {
+            delay: 1.9,
+            opacity: 0,
+            x: 20,
+            display: "none",
+            ease: Expo.easeInOut,
+        })
 
-    TweenMax.from('.open', .5, {
-        delay: 2.2,
-        opacity: 0,
-    })
+        TweenMax.from('.open', .5, {
+            delay: 2.2,
+            opacity: 0,
+        })
 
-    TweenMax.from('.sub-read', .5, {
-        delay: 2.2,
-        opacity: 0,
-        y: -20,
-        ease: Expo.easeInOut,
-    })
+        TweenMax.from('.sub-read', .5, {
+            delay: 2.2,
+            opacity: 0,
+            y: -20,
+            ease: Expo.easeInOut,
+        })
 
-    TweenMax.from('.main-read', .5, {
-        delay: 2.7,
-        opacity: 0,
-        x: -20,
-        ease: Expo.easeInOut,
-    })
+        TweenMax.from('.main-read', .5, {
+            delay: 2.7,
+            opacity: 0,
+            x: -20,
+            ease: Expo.easeInOut,
+        })
 
-    let pcNavLinks = document.querySelectorAll('.pc-nav .a-nav');
-    let spNav = document.querySelector('.sp-nav');
-    pcNavLinks.forEach(function(link) {
-        let linkCopy = link.cloneNode(true);
-        spNav.appendChild(linkCopy);
-    });
-
-    document.querySelector('.open').addEventListener('click', function() {
-        this.classList.toggle('active');
-        document.querySelector('.sp-nav').classList.toggle('panelactive');
-        document.querySelector('.circle').classList.toggle('circleactive');
-    });
-
-    let navLinks = document.querySelectorAll('.sp-nav a');
-    for (let i = 0; i < navLinks.length; i++) {
-        navLinks[i].addEventListener('click', function() {
-            document.querySelector('.open').classList.remove('active');
-            document.querySelector('.sp-nav').classList.remove('panelactive');
-            document.querySelector('.circle').classList.remove('circleactive');
+        let pcNavLinks = document.querySelectorAll('.pc-nav .a-nav');
+        let spNav = document.querySelector('.sp-nav');
+        pcNavLinks.forEach(function(link) {
+            let linkCopy = link.cloneNode(true);
+            spNav.appendChild(linkCopy);
         });
-    }
 
-});
+        document.querySelector('.open').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.sp-nav').classList.toggle('panelactive');
+            document.querySelector('.circle').classList.toggle('circleactive');
+        });
+
+        let navLinks = document.querySelectorAll('.sp-nav a');
+        for (let i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener('click', function() {
+                document.querySelector('.open').classList.remove('active');
+                document.querySelector('.sp-nav').classList.remove('panelactive');
+                document.querySelector('.circle').classList.remove('circleactive');
+            });
+        }
+    });
 </script>
 
 
@@ -88,7 +90,6 @@ onMount(() => {
 </svelte:head>
 
 
-<div class="wrapper">
     <header>
         <div class="moon"><span class="moon-title">Svelete <br class="sp">Base</span><a class="moon-text" href="#a01">About <br class="sp">Svelete</a></div>
         <div class="header-inner">
@@ -213,33 +214,17 @@ onMount(() => {
             <div class="container">
             <h1>Blog</h1>
             <div class="blog-content">
-                <a href="" class="blog-item">
+                {#each data.contents as content}
+                <a href="{content.id}" class="blog-item">
                     <div class="blog-img">
-                        <img src="/image/blog01.jpg" alt="">
+                        <img src={content.eyecatch?.url} alt="">
                     </div>
                     <div class="blog-text">
-                        <div class="category">Test</div><div class="date">2023.08.01</div>
-                        <h2 class="title">Lorem ipsum dolor sit amet consectetur.</h2> 
+                        <div class="category">{content.category.name}</div><div class="date">{dayjs(content.publishedAt).format('YYYY.MM.DD')}</div>
+                        <h2 class="title">{content.title}</h2>
                     </div>
                 </a>
-                <a href="" class="blog-item">
-                    <div class="blog-img">
-                        <img src="/image/blog02.jpg" alt="">
-                    </div>
-                    <div class="blog-text">
-                        <div class="category">Test</div><div class="date">2023.08.01</div>
-                        <h2 class="title">Lorem ipsum dolor sit amet consectetur.</h2> 
-                    </div>
-                </a>
-                <a href="" class="blog-item">
-                    <div class="blog-img">
-                        <img src="/image/blog03.jpg" alt="">
-                    </div>
-                    <div class="blog-text">
-                        <div class="category">Test</div><div class="date">2023.08.01</div>
-                        <h2 class="title">Lorem ipsum dolor sit amet consectetur.</h2> 
-                    </div>
-                </a>
+                {/each}
             </div>
             </div>
         </section>
@@ -260,4 +245,3 @@ onMount(() => {
     <footer>
         <small>©︎Svelte Base 2023</small>
     </footer>
-</div>

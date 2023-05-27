@@ -679,3 +679,21 @@ footer {
         color: #fff;
     }
 }
+
+.eyecatch {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.blog-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.blog-detail-text {
+    width: 100%;
+    // margin: 0 auto;
+}
+figure img {
+    max-width: 100%;
+}
