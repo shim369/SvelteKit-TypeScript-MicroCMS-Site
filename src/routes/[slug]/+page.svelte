@@ -4,8 +4,8 @@
 </script>
 
 <svelte:head>
-  <title>ブログ</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>{data.title} | Svelte Base</title>
+  <meta name="description" content={data.title} />
 </svelte:head>
 
 <main>
