@@ -26,10 +26,20 @@ body {
     position: relative;
 }
 
-.cover {
-    opacity: 0;
+.loading {
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    opacity: 1;
     position: absolute;
-    display: none;
 }
 
 .moon {
@@ -185,7 +195,7 @@ header {
     }
     &.panelactive {
         position:fixed;
-        z-index: 999;
+        z-index: 998;
         top: 0;
         width:100%;
         height: 100vh;
@@ -218,7 +228,7 @@ header {
     position: fixed;
     top: 10px;
     right: 10px;
-    z-index: 9999;
+    z-index: 998;
     cursor: pointer;
     width: 50px;
     height: 50px;
@@ -248,6 +258,7 @@ header {
         }
     }
     &.active {
+        z-index: 9999 !important;
         span {
             &:nth-of-type(1) {
                 top: 18px;

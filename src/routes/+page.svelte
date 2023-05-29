@@ -4,44 +4,35 @@
     import type { PageData } from "./$types";
     import dayjs from "dayjs";
     import { onMount, beforeUpdate } from 'svelte';
-    import { TweenMax, Expo } from "gsap";
+    import { gsap, TweenMax, Expo } from "gsap";
     import HeaderInner from '../components/HeaderInner.svelte';;
     import Footer from '../components/Footer.svelte';
 
     export let data: PageData;
     let openButton: HTMLElement;
+    let loadingElement: HTMLDivElement;
+    let loading: boolean;
 
-    onMount(() => {
+    onMount(async () => {
         AOS.init();
-        // TweenMax.from('.cover', 1.5, {
-        //     width: "100%",
-        //     height: "100%",
-        //     background: "#eed770",
-        //     display: "flex",
-        //     zIndex: 1000,
-        //     opacity: 1,
-        //     top: "0%",
-        //     left: "0%",
-        // })
+        gsap.to('.loading', {
+            display: "none",
+            opacity: 0,
+            onComplete: () => { loading = false; return; }
+        });
         TweenMax.from('.moon', .3, {
             delay: 1.6,
             width: "100%",
             height: "100%",
             background: "#eed770",
             display: "flex",
-            zIndex: 999,
+            zIndex: 997,
             borderRadius: 0,
             opacity: 1,
             top: "0%",
             left: "0%",
             fontSize: "3em",
             ease: Expo.easeInOut,
-        })
-
-        TweenMax.from('nav', .3, {
-            delay: 1.9,
-            opacity: 0,
-            y: 20,
         })
 
         TweenMax.from('.moon-title', .3, {
@@ -58,20 +49,27 @@
             ease: Expo.easeInOut,
         })
 
-        TweenMax.from('.open', .5, {
+        TweenMax.from('nav', .3, {
             delay: 2.2,
+            opacity: 0,
+            y: 20,
+        })
+
+        TweenMax.from('.open', .5, {
+            delay: 2.5,
+            zIndex: 0,
             opacity: 0,
         })
 
         TweenMax.from('.sub-read', .5, {
-            delay: 2.2,
+            delay: 3,
             opacity: 0,
             y: -20,
             ease: Expo.easeInOut,
         })
 
         TweenMax.from('.main-read', .5, {
-            delay: 2.7,
+            delay: 3.5,
             opacity: 0,
             x: -20,
             ease: Expo.easeInOut,
@@ -88,7 +86,9 @@
     <title>Svelte Base</title>
     <meta name="description" content="Svelte × Jamstack" />
 </svelte:head>
-<!-- <div class="cover"></div> -->
+<div class="loading" bind:this={loadingElement}>
+  Loading...
+</div>
 <header>
     <div class="moon"><span class="moon-title">Svelete <br class="sp">Base</span><a class="moon-text" href="#a01">About <br class="sp">Svelete</a></div>
     <HeaderInner {openButton} />
