@@ -104,7 +104,7 @@
             <h1>About</h1>
             <div class="flex-box">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="/image/about.jpg" alt="">
+                    <img src="/image/about.webp" alt="" width="800" height="533">
                 </div>
                 <div class="about-text" data-aos="fade-down">
                     <h2>About Svelte</h2>
@@ -201,7 +201,7 @@
             {#each data.contents as content}
             <a href="{content.id}" class="blog-item">
                 <div class="blog-img">
-                    <img src={content.eyecatch?.url} alt="">
+                    <img src={content.eyecatch?.url} alt="" width="400" height="266">
                 </div>
                 <div class="blog-text">
                     <div class="category">{content.category.name}</div><div class="date">{dayjs(content.publishedAt).format('YYYY.MM.DD')}</div>

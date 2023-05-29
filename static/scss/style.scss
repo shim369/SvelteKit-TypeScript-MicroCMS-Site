@@ -304,7 +304,7 @@ header {
     padding: 0 5%;
     font-weight: bold;
     z-index: 1;
-    background: url(/image/main-v.jpg);
+    background: url(/image/main-v.webp);
     background-position: center;
     position: relative;
     overflow-y: hidden;
@@ -710,6 +710,7 @@ footer {
     }
 }
 .blog-detail {
+    min-height: 100vh;
     h1 {
         text-align: left;
         font-size: 2.5em;
