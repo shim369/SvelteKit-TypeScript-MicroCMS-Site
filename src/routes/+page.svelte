@@ -3,21 +3,26 @@
     import 'aos/dist/aos.css';
     import type { PageData } from "./$types";
     import dayjs from "dayjs";
-    export let data: PageData;
     import { onMount, beforeUpdate } from 'svelte';
     import { TweenMax, Expo } from "gsap";
+    import HeaderInner from '../components/HeaderInner.svelte';;
+    import Footer from '../components/Footer.svelte';
+
+    export let data: PageData;
+    let openButton: HTMLElement;
+
     onMount(() => {
         AOS.init();
-        TweenMax.from('.cover', 1.5, {
-            width: "100%",
-            height: "100%",
-            background: "#eed770",
-            display: "flex",
-            zIndex: 1000,
-            opacity: 1,
-            top: "0%",
-            left: "0%",
-        })
+        // TweenMax.from('.cover', 1.5, {
+        //     width: "100%",
+        //     height: "100%",
+        //     background: "#eed770",
+        //     display: "flex",
+        //     zIndex: 1000,
+        //     opacity: 1,
+        //     top: "0%",
+        //     left: "0%",
+        // })
         TweenMax.from('.moon', .3, {
             delay: 1.6,
             width: "100%",
@@ -72,27 +77,7 @@
             ease: Expo.easeInOut,
         })
 
-        let pcNavLinks = document.querySelectorAll('.pc-nav .a-nav');
-        let spNav = document.querySelector('.sp-nav');
-        pcNavLinks.forEach(function(link) {
-            let linkCopy = link.cloneNode(true);
-            spNav.appendChild(linkCopy);
-        });
-
-        document.querySelector('.open').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.querySelector('.sp-nav').classList.toggle('panelactive');
-            document.querySelector('.circle').classList.toggle('circleactive');
-        });
-
-        let navLinks = document.querySelectorAll('.sp-nav a');
-        for (let i = 0; i < navLinks.length; i++) {
-            navLinks[i].addEventListener('click', function() {
-                document.querySelector('.open').classList.remove('active');
-                document.querySelector('.sp-nav').classList.remove('panelactive');
-                document.querySelector('.circle').classList.remove('circleactive');
-            });
-        }
+    
     });
 
     beforeUpdate(() => {
@@ -103,25 +88,10 @@
     <title>Svelte Base</title>
     <meta name="description" content="Svelte × Jamstack" />
 </svelte:head>
-<div class="cover"></div>
+<!-- <div class="cover"></div> -->
 <header>
     <div class="moon"><span class="moon-title">Svelete <br class="sp">Base</span><a class="moon-text" href="#a01">About <br class="sp">Svelete</a></div>
-    <div class="header-inner">
-        <div class="open">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="pc-nav">
-            <a href="#a01" class="a-nav">About</a>
-            <a href="#a02" class="a-nav">Skills</a>
-            <a href="./" class="a-logo">Svelte Base</a>
-            <a href="#a03" class="a-nav">Blog</a>
-            <a href="#a04" class="a-nav">Contact</a>
-        </nav>
-        <nav class="sp-nav"></nav>
-        <div class="circle"></div>
-    </div>
+    <HeaderInner {openButton} />
     <div class="main-box">
         <span class="main-read">Web<br>development</span>
         <div class="sub-read">Svelte × Jamstack</div>
@@ -133,10 +103,10 @@
         <div class="container">
             <h1>About</h1>
             <div class="flex-box">
-                <div class="about-image">
+                <div class="about-image" data-aos="fade-right">
                     <img src="/image/about.jpg" alt="">
                 </div>
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-down">
                     <h2>About Svelte</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tenetur itaque saepe vero, nemo voluptatum hic vitae delectus. </p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tenetur itaque saepe vero, nemo voluptatum hic vitae delectus. </p>
@@ -227,7 +197,7 @@
     <section id="a03" class="blog">
         <div class="container">
         <h1>Blog</h1>
-        <div class="blog-content">
+        <div class="blog-content" data-aos="fade-up">
             {#each data.contents as content}
             <a href="{content.id}" class="blog-item">
                 <div class="blog-img">
@@ -245,7 +215,7 @@
     <section id="a04">
         <div class="container">
         <h1>Contact</h1>
-        <div class="form-box">
+        <div class="form-box" data-aos="fade-up">
             <div class="form-item">
                 <input id="name" name="name" placeholder="Name" autocomplete="name">
                 <input id="email" name="email" type="email" placeholder="Email" autocomplete="email">
@@ -256,6 +226,4 @@
         </div>
     </section>
 </main>
-<footer>
-    <small>©︎Svelte Base 2023</small>
-</footer>
+<Footer />

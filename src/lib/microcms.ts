@@ -6,6 +6,10 @@ const client = createClient({
 });
 
 //型定義
+export type Category = {
+  name: string;
+};
+
 export type Blog = {
   id: string;
   createdAt: string;
@@ -15,7 +19,7 @@ export type Blog = {
   title: string;
   content: string;
   eyecatch?: MicroCMSImage;
-  category: string;
+  category: Category;
 };
 export type BlogResponse = {
   totalCount: number;

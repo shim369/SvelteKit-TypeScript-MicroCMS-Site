@@ -1,6 +1,9 @@
 <script lang="ts">
+  import HeaderInner from '../../components/HeaderInner.svelte';
+  import Footer from '../../components/Footer.svelte';
   import type { PageData } from "./$types";
   export let data: PageData;
+    let openButton: HTMLElement;
 </script>
 
 <svelte:head>
@@ -9,6 +12,7 @@
 </svelte:head>
 
 <main>
+  <HeaderInner {openButton} />
     <section>
         <div class="container">
             <div class="blog-detail">
@@ -19,3 +23,4 @@
         </div>
     </section>
 </main>
+<Footer />
