@@ -86,9 +86,7 @@
     <title>Svelte Base</title>
     <meta name="description" content="Svelte × Jamstack" />
 </svelte:head>
-<div class="loading" bind:this={loadingElement}>
-  Loading...
-</div>
+<div class="loading" bind:this={loadingElement}></div>
 <header>
     <div class="moon"><span class="moon-title">Svelete <br class="sp">Base</span><a class="moon-text" href="#a01">About <br class="sp">Svelete</a></div>
     <HeaderInner {openButton} />
