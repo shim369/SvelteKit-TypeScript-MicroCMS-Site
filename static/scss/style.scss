@@ -24,6 +24,7 @@ body {
 
 .wrapper {
     position: relative;
+    overflow: hidden;
 }
 
 .loading {
@@ -85,17 +86,13 @@ body {
     }
 }
 
-.wrapper {
-    overflow: hidden;
-}
-
 section {
     width: 100%;
     padding: 60px 0;
     background: rgb(226 232 234);
-    &:nth-child(2n){
-        background: var(--main-color);
-        background-image: repeating-linear-gradient(to bottom, #3f5156, #3f5156 1px, transparent 0, transparent 64px), repeating-linear-gradient(to right,#3f5156, #3f5156 1px, transparent 0, transparent 64px);    
+    &:nth-child(2n),&.contact {
+        background: var(--main-color) !important;
+        background-image: repeating-linear-gradient(to bottom, #3f5156, #3f5156 1px, transparent 0, transparent 64px), repeating-linear-gradient(to right,#3f5156, #3f5156 1px, transparent 0, transparent 64px) !important;   
         h1 {
             color: rgb(226 232 234);
         }

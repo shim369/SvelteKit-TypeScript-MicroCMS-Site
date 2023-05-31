@@ -1,6 +1,7 @@
 <script lang="ts">
   import HeaderInner from '../../components/HeaderInner.svelte';
   import Footer from '../../components/Footer.svelte';
+  import Contact from '../../components/Contact.svelte';
   import type { PageData } from "./$types";
   export let data: PageData;
     let openButton: HTMLElement;
@@ -22,5 +23,6 @@
             </div>
         </div>
     </section>
+    <Contact />
 </main>
 <Footer />

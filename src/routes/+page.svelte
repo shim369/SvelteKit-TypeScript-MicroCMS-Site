@@ -7,6 +7,7 @@
     import { gsap, TweenMax, Expo } from "gsap";
     import HeaderInner from '../components/HeaderInner.svelte';;
     import Footer from '../components/Footer.svelte';
+    import Contact from '../components/Contact.svelte';
 
     export let data: PageData;
     let openButton: HTMLElement;
@@ -210,18 +211,6 @@
         </div>
         </div>
     </section>
-    <section id="a04">
-        <div class="container">
-        <h1>Contact</h1>
-        <div class="form-box" data-aos="fade-up">
-            <div class="form-item">
-                <input id="name" name="name" placeholder="Name" autocomplete="name">
-                <input id="email" name="email" type="email" placeholder="Email" autocomplete="email">
-                <textarea id="message" name="message" placeholder="Message"></textarea>
-                <button type="submit">Submit</button>
-            </div>
-        </div>
-        </div>
-    </section>
+    <Contact />
 </main>
 <Footer />
