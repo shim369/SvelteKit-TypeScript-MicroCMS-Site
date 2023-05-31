@@ -55,21 +55,21 @@
             y: 20,
         })
 
-        TweenMax.from('.open', .5, {
+        TweenMax.from('.open', .3, {
             delay: 2.5,
             zIndex: 0,
             opacity: 0,
         })
 
-        TweenMax.from('.sub-read', .5, {
-            delay: 3,
+        TweenMax.from('.sub-read', .3, {
+            delay: 2.8,
             opacity: 0,
             y: -20,
             ease: Expo.easeInOut,
         })
 
-        TweenMax.from('.main-read', .5, {
-            delay: 3.5,
+        TweenMax.from('.main-read', .3, {
+            delay: 3.1,
             opacity: 0,
             x: -20,
             ease: Expo.easeInOut,
