@@ -65,7 +65,7 @@
         TweenMax.from('.sub-read', .3, {
             delay: 2.8,
             opacity: 0,
-            y: -20,
+            x: -20,
             ease: Expo.easeInOut,
         })
 
