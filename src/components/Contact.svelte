@@ -1,8 +1,3 @@
-
-<svelte:head>
-  <title>Newt・SvelteKitフォーム</title>
-  <meta name="description" content="NewtとSvelteKitを利用した問い合わせフォームです" />
-</svelte:head>
 <section id="a04" class="contact">
     <div class="container">
     <h1>Contact</h1>

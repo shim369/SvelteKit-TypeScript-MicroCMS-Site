@@ -76,6 +76,12 @@
             ease: Expo.easeInOut,
         })
 
+        TweenMax.from('.scrolldown', .3, {
+            delay: 3.4,
+            opacity: 0,
+            y: -20,
+            ease: Expo.easeInOut,
+        })
     
     });
 
@@ -94,7 +100,7 @@
     <div class="main-box">
         <span class="main-read">Web<br>development</span>
         <div class="sub-read">Svelte × Jamstack</div>
-        <div class="scrolldown"><span></span></div>
+        <div class="scrolldown"><span>scroll</span></div>
     </div>
 </header>
 <main>
