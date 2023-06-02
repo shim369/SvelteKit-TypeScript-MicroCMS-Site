@@ -9,6 +9,7 @@
     import Footer from '../components/Footer.svelte';
     import Contact from '../components/Contact.svelte';
 
+
     export let data: PageData;
     let openButton: HTMLElement;
     let loadingElement: HTMLDivElement;
@@ -209,7 +210,9 @@
                     <img src={content.eyecatch?.url} alt="" width="400" height="266">
                 </div>
                 <div class="blog-text">
-                    <div class="category">{content.category.name}</div><div class="date">{dayjs(content.publishedAt).format('YYYY.MM.DD')}</div>
+                    <div class="blog-line1">
+                        <div class="category">{content.category.name}</div><div class="date"><i class="material-icons">schedule</i>{dayjs(content.publishedAt).format('YYYY.MM.DD')}</div>
+                    </div>
                     <h2 class="title">{content.title}</h2>
                 </div>
             </a>

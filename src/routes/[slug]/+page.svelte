@@ -3,6 +3,7 @@
   import Footer from '../../components/Footer.svelte';
   import Contact from '../../components/Contact.svelte';
   import type { PageData } from "./$types";
+  import dayjs from "dayjs";
   export let data: PageData;
     let openButton: HTMLElement;
 </script>
@@ -18,6 +19,8 @@
         <div class="container">
             <div class="blog-detail">
                 <h1>{data.title}</h1>
+                <div class="blog-detail-date"><i class="material-icons">schedule</i>
+                  {dayjs(data.publishedAt).format('YYYY.MM.DD')}</div>
                 <div class="eyecatch"><img src={data.eyecatch?.url} alt="" /></div>
                 <div class="blog-detail-text">{@html data.content}</div>
             </div>
