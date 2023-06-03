@@ -96,7 +96,7 @@
 </svelte:head>
 <div class="loading" bind:this={loadingElement}></div>
 <header>
-    <div class="moon"><span class="moon-title">Svelete <br class="sp">Base</span><a class="moon-text" href="#a01">About <br class="sp">Svelete</a></div>
+    <div class="moon"><span class="moon-title">Svelte <br class="sp">Base</span><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div>
     <HeaderInner {openButton} />
     <div class="main-box">
         <span class="main-read">Web<br>development</span>
