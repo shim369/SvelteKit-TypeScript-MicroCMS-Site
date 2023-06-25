@@ -61,6 +61,15 @@ body {
     right: 3%;
     text-decoration: none;
     transform: scale(0);
+    @media screen and (max-width: 1000px) {
+        width: 160px;
+        height: 160px;
+    }
+    @media screen and (max-width: 480px) {
+        width: 80px;
+        height: 80px;
+        top: 12vh;
+    }
     .moon-text {
         opacity: 1;
         display: flex;
@@ -75,14 +84,6 @@ body {
         &:hover {
             opacity: .6 !important;
         }
-    }
-    @media screen and (max-width: 1000px) {
-        width: 160px;
-        height: 160px;
-    }
-    @media screen and (max-width: 480px) {
-        width: 80px;
-        height: 80px;
     }
 }
 
@@ -104,6 +105,9 @@ section {
         font-weight: bold;
         font-family: 'Bruno Ace', sans-serif;
         margin-bottom: 40px;
+        @media screen and (max-width: 800px) {
+            font-size: 1.8em;
+        }
     }
 }
 
@@ -129,6 +133,9 @@ header {
     flex-direction: column;
     padding: 20px;
     background: #fff;
+    @media screen and (max-width: 800px) {
+        height: 8vh;
+    }
 }
 
 .pc-nav {
@@ -305,6 +312,9 @@ header {
     background-position: center;
     position: relative;
     overflow-y: hidden;
+    @media screen and (max-width: 800px) {
+        height: 56vh;
+    }
 }
 
 .main-read {
