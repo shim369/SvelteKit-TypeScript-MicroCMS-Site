@@ -42,7 +42,7 @@ body {
     opacity: 1;
     position: absolute;
     @media screen and (max-width: 480px) {
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
 
@@ -61,9 +61,9 @@ body {
     right: 3%;
     text-decoration: none;
     transform: scale(0);
-    @media screen and (max-width: 1000px) {
-        width: 160px;
-        height: 160px;
+    @media screen and (max-width: 800px) {
+        width: 120px;
+        height: 120px;
     }
     @media screen and (max-width: 480px) {
         width: 80px;
@@ -134,7 +134,7 @@ header {
     padding: 20px;
     background: #fff;
     @media screen and (max-width: 800px) {
-        height: 8vh;
+        height: 10vh;
     }
 }
 
@@ -313,7 +313,7 @@ header {
     position: relative;
     overflow-y: hidden;
     @media screen and (max-width: 800px) {
-        height: 56vh;
+        height: 68vh;
     }
 }
 
