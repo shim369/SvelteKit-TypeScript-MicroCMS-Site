@@ -86,16 +86,6 @@ body {
     }
 }
 
-// .opening {
-//     display: none;
-//     opacity: 0;
-//     .opening-title {
-//         // display: none;
-//         color: #fff;
-//         font-size: 3em;
-//     }
-// }
-
 section {
     width: 100%;
     padding: 60px 0;
@@ -240,7 +230,7 @@ header {
     width: 50px;
     height: 50px;
     display: none;
-    background: var(--accent-color);
+    background: var(--main-color);
     padding: 10px;
     @media screen and (max-width: 800px) {
         display: block;

@@ -85,7 +85,6 @@
 </svelte:head>
 <div class="loading" bind:this={loadingElement}><span class="opening-title">Svelte <br class="sp">Base</span></div>
 <header>
-    <!-- <div class="opening"><span class="opening-title">Svelte <br class="sp">Base</span></div> -->
     <div class="moon"><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div>
     <HeaderInner {openButton} />
     <div class="main-box">
