@@ -18,29 +18,16 @@
     onMount(async () => {
         AOS.init();
         gsap.to('.loading', {
+            delay: 1.6,
             display: "none",
             opacity: 0,
             onComplete: () => { loading = false; return; }
-        });
-        TweenMax.from('.moon', .3, {
-            delay: 1.6,
-            width: "100%",
-            height: "100%",
-            background: "#eed770",
-            display: "flex",
-            zIndex: 997,
-            borderRadius: 0,
-            opacity: 1,
-            top: "0%",
-            left: "0%",
-            fontSize: "3em",
-            ease: Expo.easeInOut,
         })
 
-        TweenMax.from('.moon-title', .3, {
-            delay: 1.6,
-            opacity: 1,
-            display: "block",
+        TweenMax.from('.moon', .3, {
+            delay: 1.9,
+            opacity: 0,
+            display: "none",
         })
 
         TweenMax.from('.moon-text', .3, {
@@ -94,9 +81,10 @@
     <title>Svelte Base</title>
     <meta name="description" content="Svelte × Jamstack" />
 </svelte:head>
-<div class="loading" bind:this={loadingElement}></div>
+<div class="loading" bind:this={loadingElement}><span class="opening-title">Svelte <br class="sp">Base</span></div>
 <header>
-    <div class="moon"><span class="moon-title">Svelte <br class="sp">Base</span><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div>
+    <!-- <div class="opening"><span class="opening-title">Svelte <br class="sp">Base</span></div> -->
+    <div class="moon"><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div>
     <HeaderInner {openButton} />
     <div class="main-box">
         <span class="main-read">Web<br>development</span>
