@@ -24,50 +24,52 @@
             onComplete: () => { loading = false; return; }
         })
 
-        TweenMax.from('.moon', .3, {
-            delay: 1.9,
-            opacity: 0,
-            display: "none",
-        })
-
-        TweenMax.from('.moon-text', .3, {
-            delay: 1.9,
-            opacity: 0,
-            x: 20,
-            display: "none",
-            ease: Expo.easeInOut,
-        })
 
         TweenMax.from('nav', .3, {
-            delay: 2.2,
+            delay: 1.9,
             opacity: 0,
             y: 20,
         })
 
         TweenMax.from('.open', .3, {
-            delay: 2.5,
+            delay: 2.2,
             zIndex: 0,
             opacity: 0,
         })
 
         TweenMax.from('.sub-read', .3, {
-            delay: 2.8,
+            delay: 2.5,
             opacity: 0,
             x: -20,
             ease: Expo.easeInOut,
         })
 
         TweenMax.from('.main-read', .3, {
-            delay: 3.1,
+            delay: 2.8,
             opacity: 0,
             x: -20,
             ease: Expo.easeInOut,
         })
 
         TweenMax.from('.scrolldown', .3, {
-            delay: 3.4,
+            delay: 3.1,
             opacity: 0,
             y: -20,
+            ease: Expo.easeInOut,
+        })
+
+        gsap.to(".moon", {
+            delay: 3.4,
+            duration: .3,
+            scale: 1,
+            ease: "power2.inOut"
+        })
+
+        TweenMax.from('.moon-text', .3, {
+            delay: 3.7,
+            opacity: 0,
+            x: 20,
+            display: "none",
             ease: Expo.easeInOut,
         })
     

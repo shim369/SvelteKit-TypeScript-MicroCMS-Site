@@ -32,7 +32,7 @@ body {
     height: 100vh;
     background: var(--accent-color);
     color: #fff;
-    font-size: 5em;
+    font-size: 3em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@ body {
     opacity: 1;
     position: absolute;
     @media screen and (max-width: 480px) {
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
 }
 
@@ -60,6 +60,7 @@ body {
     top: 17vh;
     right: 3%;
     text-decoration: none;
+    transform: scale(0);
     .moon-text {
         opacity: 1;
         display: flex;
@@ -85,15 +86,15 @@ body {
     }
 }
 
-.opening {
-    display: none;
-    opacity: 0;
-    .opening-title {
-        // display: none;
-        color: #fff;
-        font-size: 3em;
-    }
-}
+// .opening {
+//     display: none;
+//     opacity: 0;
+//     .opening-title {
+//         // display: none;
+//         color: #fff;
+//         font-size: 3em;
+//     }
+// }
 
 section {
     width: 100%;
