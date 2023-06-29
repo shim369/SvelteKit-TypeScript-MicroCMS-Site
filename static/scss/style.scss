@@ -264,12 +264,12 @@ header {
     &.active {
         z-index: 9999 !important;
         span {
+            background: #fff;
             &:nth-of-type(1) {
                 top: 18px;
                 left: 18px;
                 transform: translateY(6px) rotate(-45deg);
                 width: 33%;
-                background: var(--main-color);
             }
             &:nth-of-type(2) {
                 opacity: 0;
@@ -279,7 +279,6 @@ header {
                 left: 18px;
                 transform: translateY(-6px) rotate(45deg);
                 width: 33%;
-                background: var(--main-color);
             }
         }
     }
