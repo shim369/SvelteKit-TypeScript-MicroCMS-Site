@@ -262,6 +262,7 @@ header {
         }
     }
     &.active {
+        background: var(--main-color);
         z-index: 9999 !important;
         span {
             background: #fff;
