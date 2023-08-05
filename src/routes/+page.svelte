@@ -200,7 +200,7 @@
                 </div>
                 <div class="blog-text">
                     <div class="blog-line1">
-                        <div class="category">{content.category.name}</div><div class="date"><i class="material-icons">schedule</i>{dayjs(content.publishedAt).format('YYYY.MM.DD')}</div>
+                        <div class="category">{content.category.name}</div><div class="date"><i class="material-icons schedule-icons">schedule</i>{dayjs(content.publishedAt).format('YYYY.MM.DD')}</div>
                     </div>
                     <h2 class="title">{content.title}</h2>
                 </div>
