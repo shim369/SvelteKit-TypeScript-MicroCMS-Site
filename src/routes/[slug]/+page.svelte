@@ -19,7 +19,7 @@
         <div class="container">
             <div class="blog-detail">
                 <h1>{data.title}</h1>
-                <div class="blog-detail-date"><i class="material-icons schedule-icons">schedule</i>
+                <div class="blog-detail-date"><i class="material-icons schedule-icon">schedule</i>
                   {dayjs(data.publishedAt).format('YYYY.MM.DD')}</div>
                 <div class="eyecatch"><img src={data.eyecatch?.url} alt="" /></div>
                 <div class="blog-detail-text">{@html data.content}</div>
