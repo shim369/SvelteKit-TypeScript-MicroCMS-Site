@@ -99,7 +99,10 @@
             <h1>About</h1>
             <div class="flex-box">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="/image/about.webp" alt="" width="800" height="533">
+                    <picture>
+                        <source srcset="/image/about.webp" type="image/webp">
+                        <img src="/image/about.jpg" alt="about" width="800" height="533">
+                    </picture>
                 </div>
                 <div class="about-text" data-aos="fade-down">
                     <h2>About Svelte</h2>
@@ -116,7 +119,10 @@
         <ul class="skills-detail">
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="Astro" width="100" height="100" src="/image/astro.webp">
+                    <picture>
+                        <source srcset="/image/astro.webp" type="image/webp">
+                        <img alt="Astro" width="100" height="100" src="/image/astro.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>Astro</h2>
@@ -125,7 +131,10 @@
             </li>
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="JavaScript" width="100" height="100" src="/image/js.webp">
+                    <picture>
+                        <source srcset="/image/js.webp" type="image/webp">
+                        <img alt="JavaScript" width="100" height="100" src="/image/js.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>JavaScript</h2>
@@ -134,7 +143,10 @@
             </li>
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="Next.js" width="100" height="100" src="/image/next.webp">
+                    <picture>
+                        <source srcset="/image/next.webp" type="image/webp">
+                        <img alt="Next.js" width="100" height="100" src="/image/next.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>Next.js</h2>
@@ -143,7 +155,10 @@
             </li>
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="Nuxt.js" width="100" height="100" src="/image/nuxt.webp">
+                    <picture>
+                        <source srcset="/image/nuxt.webp" type="image/webp">
+                        <img alt="Nuxt.js" width="100" height="100" src="/image/nuxt.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>Nuxt.js</h2>
@@ -152,7 +167,10 @@
             </li>
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="Python" width="100" height="100" src="/image/py.webp">
+                    <picture>
+                        <source srcset="/image/py.webp" type="image/webp">
+                        <img alt="Python" width="100" height="100" src="/image/py.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>Python</h2>
@@ -161,7 +179,10 @@
             </li>
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="Django" width="100" height="100" src="/image/django.webp">
+                    <picture>
+                        <source srcset="/image/django.webp" type="image/webp">
+                        <img alt="Django" width="100" height="100" src="/image/django.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>Django</h2>
@@ -170,7 +191,10 @@
             </li>
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="Newt" width="100" height="100" src="/image/newt.webp">
+                    <picture>
+                        <source srcset="/image/newt.webp" type="image/webp">
+                        <img alt="Newt" width="100" height="100" src="/image/newt.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>Newt</h2>
@@ -179,7 +203,10 @@
             </li>
             <li data-aos="fade-up">
                 <div class="skills-img">
-                    <img alt="Figma" width="100" height="100" src="/image/figma.webp">
+                    <picture>
+                        <source srcset="/image/figma.webp" type="image/webp">
+                        <img alt="Figma" width="100" height="100" src="/image/figma.jpg">
+                    </picture>
                 </div>
                 <div class="skills-text">
                     <h2>Figma</h2>

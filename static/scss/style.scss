@@ -10,6 +10,7 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
+    font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
@@ -322,7 +323,7 @@ header {
     padding: 0 5%;
     font-weight: bold;
     z-index: 1;
-    background: url(/image/main-v.webp);
+    background: url(/image/main-v.jpg);
     background-position: center;
     position: relative;
     overflow-y: hidden;
