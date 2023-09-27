@@ -90,6 +90,10 @@
 	beforeUpdate(() => {
 		AOS.refresh();
 	});
+
+	const sveltePosts = data.contents.filter(content => content.category.name === "Svelte");
+
+	const latestSveltePosts = sveltePosts.slice(0, 3);
 </script>
 <svelte:head>
 	<title>Svelte Base</title>
@@ -151,7 +155,7 @@
 	<div class="container">
 	<h1>Blog</h1>
 	<div class="blog-content" data-aos="fade-up">
-		{#each data.contents as content, i}
+		{#each latestSveltePosts as content, i}
 		<a href="{content.id}" class="blog-item" data-aos="fade-up" data-aos-delay={i * 100}>
 			<div class="blog-img">
 				<img src={content.eyecatch?.url} alt="" width="400" height="266">
