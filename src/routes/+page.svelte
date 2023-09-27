@@ -100,7 +100,7 @@
 	<!-- <div class="moon"><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div> -->
 	<HeaderInner {openButton} />
 	<div class="main-box">
-		<span class="main-read">Web<br>development</span>
+		<span class="main-read">Web development</span>
 		<div class="sub-read">Svelte × Jamstack</div>
 		<div class="scrolldown"><span>scroll</span></div>
 	</div>
