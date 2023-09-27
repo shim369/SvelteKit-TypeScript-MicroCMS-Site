@@ -59,20 +59,20 @@
 			ease: Expo.easeInOut,
 		})
 
-		gsap.to(".moon", {
-			delay: 3.4,
-			duration: .3,
-			scale: 1,
-			ease: "power2.inOut"
-		})
+		// gsap.to(".moon", {
+		// 	delay: 3.4,
+		// 	duration: .3,
+		// 	scale: 1,
+		// 	ease: "power2.inOut"
+		// })
 
-		TweenMax.from('.moon-text', .3, {
-			delay: 3.7,
-			opacity: 0,
-			x: 20,
-			display: "none",
-			ease: Expo.easeInOut,
-		})
+		// TweenMax.from('.moon-text', .3, {
+		// 	delay: 3.7,
+		// 	opacity: 0,
+		// 	x: 20,
+		// 	display: "none",
+		// 	ease: Expo.easeInOut,
+		// })
 
 	});
 
@@ -97,7 +97,7 @@
 </svelte:head>
 <div class="loading" bind:this={loadingElement}><span class="opening-title">Svelte <br class="sp">Base</span></div>
 <header>
-	<div class="moon"><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div>
+	<!-- <div class="moon"><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div> -->
 	<HeaderInner {openButton} />
 	<div class="main-box">
 		<span class="main-read">Web<br>development</span>
