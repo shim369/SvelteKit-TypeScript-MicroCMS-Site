@@ -695,7 +695,7 @@ main {
             padding: 13px;
             width: 100%;
             border: none;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             font-weight: normal;
             &:focus {
                 outline: none;
@@ -714,12 +714,17 @@ main {
             border: none;
             min-height: 150px;
             font-weight: normal;
+            margin-bottom: 15px;
             &:focus {
                 outline: none;
             }
             &::placeholder {
                 color: #999;
             }
+        }
+        span {
+            margin-bottom: 15px;
+            color: #fff;
         }
         button {
             color: var(--main-color);
