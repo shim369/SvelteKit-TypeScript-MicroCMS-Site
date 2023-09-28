@@ -91,7 +91,7 @@
 </script>
 <svelte:head>
 <script
-    src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key&hl=ja"
+    src="https://www.google.com/recaptcha/api.js?render=6LeqhF0oAAAAADkJSBBJpobIpl-lVdijocIIDBrB&hl=ja"
     async
     defer
 ></script>
