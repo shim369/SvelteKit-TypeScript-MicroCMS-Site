@@ -257,7 +257,7 @@ header {
     width: 50px;
     height: 50px;
     display: none;
-    background: #fff;
+    background: var(--accent-color);
     padding: 10px;
     @media screen and (max-width: 800px) {
         display: block;
@@ -269,7 +269,7 @@ header {
         left: 14px;
         height: 3px;
         border-radius: 2px;
-        background: var(--main-color);
+        background: #fff;
         width: 45%;
         &:nth-of-type(1) {
             top: 15px;
@@ -288,18 +288,18 @@ header {
             background: #fff;
             &:nth-of-type(1) {
                 top: 18px;
-                left: 18px;
+                left: 14px;
                 transform: translateY(6px) rotate(-45deg);
-                width: 33%;
+                width: 45%;
             }
             &:nth-of-type(2) {
                 opacity: 0;
             }
             &:nth-of-type(3){
                 top: 30px;
-                left: 18px;
+                left: 14px;
                 transform: translateY(-6px) rotate(45deg);
-                width: 33%;
+                width: 45%;
             }
         }
     }
