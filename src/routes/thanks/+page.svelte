@@ -1,12 +1,12 @@
 <svelte:head>
   <title>Thank you</title>
-  <meta name="description" content="問い合わせの送信が成功しました" />
+  <meta name="description" content="Thank you page" />
 </svelte:head>
 
 <main>
-    <section>
+    <section class="contact-sec">
         <div class="container">
-            <div class="blog-detail">
+            <div class="contact-detail">
               <div class="Result">
                 <h1>Thank you!</h1>
                 <div>

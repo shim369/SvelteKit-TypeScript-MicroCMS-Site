@@ -818,3 +818,15 @@ footer {
         text-decoration: underline;
     }
 }
+
+.contact-sec {
+    min-height: 100vh;
+    .contact-detail {
+        height: 100%;
+        a {
+            text-align: center;
+            display: block;
+            color: var(--main-color); 
+        }
+    }
+}
