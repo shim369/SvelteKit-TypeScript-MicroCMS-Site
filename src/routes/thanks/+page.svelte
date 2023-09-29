@@ -10,7 +10,7 @@
               <div class="Result">
                 <h1>Thank you!</h1>
                 <div>
-                  <a href="/">Back to Previous Page</a>
+                  <a href="/">Back to Top Page</a>
                 </div>
               </div>
             </div>
