@@ -5,7 +5,6 @@
   import type { PageData } from "./$types";
   import dayjs from "dayjs";
   export let data: PageData;
-    let openButton: HTMLElement;
 </script>
 
 <svelte:head>
@@ -14,7 +13,7 @@
 </svelte:head>
 
 <main>
-  <HeaderInner {openButton} />
+  <HeaderInner />
     <section>
         <div class="container">
             <div class="blog-detail">

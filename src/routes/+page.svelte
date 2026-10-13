@@ -11,7 +11,6 @@
 
 
 	export let data: PageData;
-	let openButton: HTMLElement;
 	let loadingElement: HTMLDivElement;
 	let loading: boolean;
 
@@ -83,7 +82,7 @@
 		{name: 'Nuxt.js', imageWebp: '/image/nuxt.webp', imageJpg: '/image/nuxt.jpg', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
 		{name: 'Python', imageWebp: '/image/py.webp', imageJpg: '/image/py.jpg', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
 		{name: 'Django', imageWebp: '/image/django.webp', imageJpg: '/image/django.jpg', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
-		{name: 'Newt', imageWebp: '/image/newt.webp', imageJpg: '/image/newt.jpg', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+		{name: 'microCMS', imageWebp: '/image/microcms.webp', imageJpg: '/image/microcms.jpg', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
 		{name: 'Figma', imageWebp: '/image/figma.webp', imageJpg: '/image/figma.jpg', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
 	];
 
@@ -102,7 +101,7 @@
 <div class="loading" bind:this={loadingElement}><span class="opening-title">Svelte Base</span></div>
 <header>
 	<!-- <div class="moon"><a class="moon-text" href="#a01">About <br class="sp">Svelte</a></div> -->
-	<HeaderInner {openButton} />
+	<HeaderInner />
 	<div class="main-box">
 		<span class="main-read">Web development</span>
 		<div class="sub-read">Svelte × Jamstack</div>

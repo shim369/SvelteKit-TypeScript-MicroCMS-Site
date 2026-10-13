@@ -62,13 +62,8 @@
             .then(async (token) => {
                 values.googleReCaptchaToken = token
 
-                const formData = new FormData()
-                Object.entries(values).forEach(([key, value]) => {
-                    formData.append(key, value)
-                })
-
                 try {
-                    const response = await sendRequest(formData)
+                    const response = await sendRequest(values)
                 if (response.ok) {
                     goto('/thanks')
                 } else {
@@ -80,12 +75,12 @@
             })
         })
 
-        const sendRequest = async (formData: FormData) => {
-            return await fetch('https://shim.form.newt.so/v1/ZouLTYvKM', {
+        const sendRequest = async (values: FormValues) => {
+            return await fetch('/api/contact', {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify(values),
                 headers: {
-                    Accept: 'application/json'
+                    'Content-Type': 'application/json'
                 }
             })
         }

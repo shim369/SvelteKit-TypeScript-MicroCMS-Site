@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    export let openButton: HTMLElement;
+    let openButton: HTMLElement;
     let pcNavLinks: NodeListOf<Element>;
     let spNav: HTMLElement | null;
     let circle: HTMLElement | null;
