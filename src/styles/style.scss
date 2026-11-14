@@ -484,6 +484,8 @@ body.is-ready .hero__title .line span.intro{opacity:1;transform:none}
 
 /* ---------- SvelteKit 用の追加 ---------- */
 .grecaptcha-badge{visibility:hidden}
+/* 白抜きロゴ(角丸の白地にマークが透明)は、ブランド色の上に余白なしで敷く */
+.skill__icon--logo{padding:0;overflow:hidden}
 /* 見出しは単語の途中で折り返さない(body の overflow-wrap:anywhere を打ち消す) */
 .hero__title{overflow-wrap:normal;word-break:keep-all}
 .form__error{margin:0 0 14px;font-size:.85rem;color:#ffb3a8}

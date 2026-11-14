@@ -15,14 +15,26 @@
 	let { data }: { data: PageData } = $props();
 
 	type Category = 'frontend' | 'backend' | 'tool';
-	const skills: { name: string; img: string; cat: Category; tag: string; lv: number; desc: string }[] = [
+	type Skill = {
+		name: string;
+		img: string;
+		/** フォールバック画像の拡張子(既定は jpg) */
+		ext?: 'jpg' | 'png';
+		/** 白抜きロゴ用のアイコン背景色 */
+		bg?: string;
+		cat: Category;
+		tag: string;
+		lv: number;
+		desc: string;
+	};
+	const skills: Skill[] = [
 		{ name: 'Astro', img: 'astro', cat: 'frontend', tag: 'Frontend', lv: 70, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
 		{ name: 'JavaScript', img: 'js', cat: 'frontend', tag: 'Frontend', lv: 90, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
 		{ name: 'Next.js', img: 'next', cat: 'frontend', tag: 'Frontend', lv: 80, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
 		{ name: 'Nuxt.js', img: 'nuxt', cat: 'frontend', tag: 'Frontend', lv: 65, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
 		{ name: 'Python', img: 'py', cat: 'backend', tag: 'Backend', lv: 85, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
 		{ name: 'Django', img: 'django', cat: 'backend', tag: 'Backend', lv: 70, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'microCMS', img: 'microcms', cat: 'tool', tag: 'CMS', lv: 80, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
+		{ name: 'microCMS', img: 'microcms-icon-white', ext: 'png', bg: '#5650ce', cat: 'tool', tag: 'CMS', lv: 80, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
 		{ name: 'Figma', img: 'figma', cat: 'tool', tag: 'Design', lv: 60, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' }
 	];
 	const filters: { key: 'all' | Category; label: string }[] = [
@@ -261,10 +273,10 @@
 						use:reveal
 					>
 						<span class="skill__tag">{s.tag}</span>
-						<div class="skill__icon">
+						<div class="skill__icon" class:skill__icon--logo={s.bg} style:background={s.bg}>
 							<picture>
 								<source srcset="/image/{s.img}.webp" type="image/webp" />
-								<img src="/image/{s.img}.jpg" alt="" width="100" height="100" loading="lazy" />
+								<img src="/image/{s.img}.{s.ext ?? 'jpg'}" alt="" width="100" height="100" loading="lazy" />
 							</picture>
 						</div>
 						<h3>{s.name}</h3>
