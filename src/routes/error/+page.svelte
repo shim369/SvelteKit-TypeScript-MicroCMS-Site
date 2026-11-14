@@ -1,19 +1,17 @@
 <svelte:head>
-  <title>Error</title>
-  <meta name="description" content="Contact Error page" />
+	<title>Error | Svelte Base</title>
+	<meta name="description" content="Contact Error page" />
 </svelte:head>
 
-<main>
-  <section class="contact-sec">
-      <div class="container">
-          <div class="contact-detail">
-            <div class="Result">
-              <h1>Error!</h1>
-              <div>
-                <a href="/">Back to Top Page</a>
-              </div>
-            </div>
-          </div>
-        </div>
-  </section>
+<main class="section--dark">
+	<section class="result">
+		<div>
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+				><circle cx="12" cy="12" r="10" /><path d="M12 7v6M12 16.5v.5" /></svg
+			>
+			<h1>Error!</h1>
+			<p>送信に失敗しました。時間をおいて再度お試しください。</p>
+			<a href="/" class="btn btn--primary">Back to Top Page</a>
+		</div>
+	</section>
 </main>

@@ -1,58 +1,98 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    let openButton: HTMLElement;
-    let pcNavLinks: NodeListOf<Element>;
-    let spNav: HTMLElement | null;
-    let circle: HTMLElement | null;
+	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 
-    onMount(() => {
-        pcNavLinks = document.querySelectorAll('.pc-nav .a-nav');
-        spNav = document.querySelector('.sp-nav');
-        circle = document.querySelector('.circle');
+	const links = [
+		{ id: 'about', label: 'About' },
+		{ id: 'skills', label: 'Skills' },
+		{ id: 'blog', label: 'Blog' },
+		{ id: 'contact', label: 'Contact' }
+	];
 
-        if(spNav !== null && circle !== null){
-            pcNavLinks.forEach(function(link: Element) {
-                let linkCopy = link.cloneNode(true);
-                if(spNav !== null){
-                    spNav.appendChild(linkCopy);
-                }
-            });
+	let scrolled = $state(false);
+	let menuOpen = $state(false);
+	let activeId = $state('');
 
+	const isHome = $derived(page.url.pathname === '/');
+	const href = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 
-            openButton.addEventListener('click', function(this: HTMLButtonElement) {
-                this.classList.toggle('active');
-                if(spNav){
-                    spNav.classList.toggle('panelactive');
-                }
-                if(circle){
-                    circle.classList.toggle('circleactive');
-                }
-            });
+	const setMenu = (open: boolean) => {
+		menuOpen = open;
+		document.body.classList.toggle('is-locked', open);
+	};
 
-            let navLinks = document.querySelectorAll('.sp-nav a');
-            for (let i = 0; i < navLinks.length; i++) {
-                navLinks[i].addEventListener('click', function() {
-                    document.querySelector('.open')?.classList.remove('active');
-                    spNav?.classList.remove('panelactive');
-                    document.querySelector('.circle')?.classList.remove('circleactive');
-                });
-            }
-        }
-    });
+	$effect(() => {
+		const onScroll = () => (scrolled = scrollY > 20);
+		const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenu(false);
+		onScroll();
+		addEventListener('scroll', onScroll, { passive: true });
+		addEventListener('keydown', onKey);
+		return () => {
+			removeEventListener('scroll', onScroll);
+			removeEventListener('keydown', onKey);
+		};
+	});
+
+	// 現在のセクションをナビでハイライト(ページ遷移ごとに監視し直す)
+	let navIO: IntersectionObserver | undefined;
+	afterNavigate(() => {
+		navIO?.disconnect();
+		activeId = '';
+		navIO = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) if (e.isIntersecting) activeId = e.target.id;
+			},
+			{ rootMargin: '-45% 0px -50% 0px' }
+		);
+		document.querySelectorAll('main section[id]').forEach((s) => navIO!.observe(s));
+	});
+	$effect(() => () => navIO?.disconnect());
 </script>
-<div class="header-inner">
-    <div class="open" bind:this={openButton}>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav class="pc-nav">
-        <a href="./#a01" class="a-nav">About</a>
-        <a href="./#a02" class="a-nav">Skills</a>
-        <a href="./" class="a-logo">Svelte Base</a>
-        <a href="./#a03" class="a-nav">Blog</a>
-        <a href="./#a04" class="a-nav">Contact</a>
-    </nav>
-    <nav class="sp-nav"></nav>
-    <div class="circle"></div>
+
+<header class="header" class:is-scrolled={scrolled}>
+	<nav class="nav" aria-label="メイン">
+		<div class="nav__group">
+			{#each links.slice(0, 2) as l}
+				<a
+					href={href(l.id)}
+					class="nav__link"
+					class:is-active={activeId === l.id}
+					aria-current={activeId === l.id ? 'true' : undefined}>{l.label}</a
+				>
+			{/each}
+		</div>
+		<a href={isHome ? '#top' : '/'} class="nav__logo">Svelte<b>.</b>Base</a>
+		<div class="nav__group nav__group--right">
+			<a
+				href={href('blog')}
+				class="nav__link"
+				class:is-active={activeId === 'blog'}
+				aria-current={activeId === 'blog' ? 'true' : undefined}>Blog</a
+			>
+			<a href={href('contact')} class="nav__link nav__link--cta">Contact</a>
+		</div>
+	</nav>
+</header>
+
+<button
+	class="menu-btn"
+	type="button"
+	aria-label={menuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+	aria-expanded={menuOpen}
+	aria-controls="sp-nav"
+	onclick={() => setMenu(!menuOpen)}
+>
+	<span></span><span></span><span></span>
+</button>
+<div class="sp-nav" class:is-open={menuOpen} id="sp-nav" aria-hidden={!menuOpen}>
+	<div class="sp-nav__circle"></div>
+	<ul class="sp-nav__list">
+		{#each links as l, i}
+			<li>
+				<a href={href(l.id)} tabindex={menuOpen ? 0 : -1} onclick={() => setMenu(false)}
+					><small>0{i + 1}</small>{l.label}</a
+				>
+			</li>
+		{/each}
+	</ul>
 </div>
