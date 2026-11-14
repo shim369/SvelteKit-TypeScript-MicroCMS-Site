@@ -336,7 +336,7 @@ body.is-moon .scene__moon{opacity:.9;transform:none;transition:opacity 1.2s,tran
 .skill.is-hidden{display:none}
 .skill__icon{width:64px;height:64px;border-radius:16px;background:var(--white);padding:8px;margin-bottom:18px;transition:border-radius .4s var(--ease),transform .4s var(--ease)}
 .skill:hover .skill__icon{border-radius:50%;transform:rotate(-6deg)}
-.skill__icon img{width:100%;height:100%;object-fit:contain}
+.skill__icon img{width:100%;height:100%;object-fit:contain;border-radius:10px}
 .skill__tag{position:absolute;top:20px;right:20px;font-size:.68rem;letter-spacing:.1em;padding:3px 10px;border-radius:999px;background:rgba(231,201,66,.15);color:var(--accent)}
 .skill h3{font-family:var(--font-display);font-weight:400;font-size:1.2rem;margin-bottom:8px}
 .skill p{font-size:.9rem;color:rgba(226,232,234,.78);line-height:1.65}
@@ -486,6 +486,7 @@ body.is-ready .hero__title .line span.intro{opacity:1;transform:none}
 .grecaptcha-badge{visibility:hidden}
 /* 白抜きロゴ(角丸の白地にマークが透明)は、ブランド色の上に余白なしで敷く */
 .skill__icon--logo{padding:0;overflow:hidden}
+.skill__icon--logo img{border-radius:inherit}
 /* 見出しは単語の途中で折り返さない(body の overflow-wrap:anywhere を打ち消す) */
 .hero__title{overflow-wrap:normal;word-break:keep-all}
 .form__error{margin:0 0 14px;font-size:.85rem;color:#ffb3a8}
