@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" />
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Ysabeau:wght@200&display=swap" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Ysabeau:wght@200&display=swap" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#3f5156" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap" />
 		%sveltekit.head%
 	</head>
-	<body>
-		<div style="display: contents">
-			<div class="wrapper">%sveltekit.body%</div>
-		</div>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
