@@ -28,14 +28,14 @@
 		desc: string;
 	};
 	const skills: Skill[] = [
-		{ name: 'Astro', img: 'astro', cat: 'frontend', tag: 'Frontend', lv: 70, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'JavaScript', img: 'js', cat: 'frontend', tag: 'Frontend', lv: 90, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'Next.js', img: 'next', cat: 'frontend', tag: 'Frontend', lv: 80, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'Nuxt.js', img: 'nuxt', cat: 'frontend', tag: 'Frontend', lv: 65, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'Python', img: 'py', cat: 'backend', tag: 'Backend', lv: 85, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'Django', img: 'django', cat: 'backend', tag: 'Backend', lv: 70, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'microCMS', img: 'microcms-icon-white', ext: 'png', bg: '#5650ce', cat: 'tool', tag: 'CMS', lv: 80, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' },
-		{ name: 'Figma', img: 'figma', cat: 'tool', tag: 'Design', lv: 60, desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' }
+		{ name: 'Astro', img: 'astro', cat: 'frontend', tag: 'Frontend', lv: 70, desc: 'コンテンツ中心のサイトを軽量に作れる静的サイトジェネレーター。React との併用も可能。' },
+		{ name: 'JavaScript', img: 'js', cat: 'frontend', tag: 'Frontend', lv: 90, desc: 'フロントエンド開発の土台となる言語。DOM 操作から非同期処理まで日常的に使用。' },
+		{ name: 'Next.js', img: 'next', cat: 'frontend', tag: 'Frontend', lv: 80, desc: 'React ベースのフレームワーク。App Router と ISR で高速なサイトを構築。' },
+		{ name: 'Nuxt.js', img: 'nuxt', cat: 'frontend', tag: 'Frontend', lv: 65, desc: 'Vue ベースのフレームワーク。Nuxt 3 と Server API で安全な構成を実現。' },
+		{ name: 'Python', img: 'py', cat: 'backend', tag: 'Backend', lv: 85, desc: 'スクリプトやバックエンド開発で活用。データ処理や自動化にも便利。' },
+		{ name: 'Django', img: 'django', cat: 'backend', tag: 'Backend', lv: 70, desc: '認証や管理画面が揃った Python の Web フレームワーク。堅牢な API 開発に。' },
+		{ name: 'microCMS', img: 'microcms-icon-white', ext: 'png', bg: '#5650ce', cat: 'tool', tag: 'CMS', lv: 80, desc: '日本発のヘッドレス CMS。API 設計から記事配信まで各フレームワークと連携。' },
+		{ name: 'Figma', img: 'figma', cat: 'tool', tag: 'Design', lv: 60, desc: 'UI デザインとプロトタイピングに使用。デザインからコードへの橋渡しに。' }
 	];
 	const filters: { key: 'all' | Category; label: string }[] = [
 		{ key: 'all', label: 'All' },
@@ -223,12 +223,10 @@
 					<span class="about__label">PROFILE</span>
 					<h3>About Svelte</h3>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tenetur itaque saepe
-						vero, nemo voluptatum hic vitae delectus.
+						SvelteKit・TypeScript・microCMS で構築した、ポートフォリオ兼ブログサイトです。microCMS の記事を静的生成で配信し、軽快な表示とスクロールアニメーションを実現しています。
 					</p>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tenetur itaque saepe
-						vero, nemo voluptatum hic vitae delectus.
+						Astro・Next.js・Nuxt など複数のフレームワークで同じ構成を試し、その知見を Blog にまとめています。気になる記事があればぜひご覧ください。
 					</p>
 					<div class="about__stats">
 						<div><strong data-count="10">0</strong><span>YEARS</span></div>
@@ -254,7 +252,7 @@
 			<div class="section-head reveal" use:reveal>
 				<span class="section-head__num">02</span>
 				<h2 class="section-head__title">Skills</h2>
-				<p class="section-head__sub">使用している技術</p>
+				<p class="section-head__sub">扱える技術</p>
 			</div>
 			<div class="skills__filters reveal" role="group" aria-label="カテゴリで絞り込み" use:reveal>
 				{#each filters as f}
