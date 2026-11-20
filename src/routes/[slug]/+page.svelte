@@ -3,7 +3,7 @@
 	import Footer from '../../components/Footer.svelte';
 	import Contact from '../../components/Contact.svelte';
 	import type { PageData } from './$types';
-	import dayjs from 'dayjs';
+	import { formatDate } from '#lib/format.ts';
 
 	let { data }: { data: PageData } = $props();
 </script>
@@ -16,20 +16,16 @@
 <HeaderInner />
 
 <main>
-	<article class="page section--light">
-		<div class="container">
+	<article class="page">
+		<div class="wrap">
 			<div class="article">
 				<a href="/#blog" class="article__back">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
 					Back to Blog
 				</a>
 				<div class="article__meta">
 					{#if data.category}<span class="post__cat">{data.category.name}</span>{/if}
-					<time class="post__date" datetime={data.publishedAt}>
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-							><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg
-						>{dayjs(data.publishedAt).format('YYYY.MM.DD')}
-					</time>
+					<time datetime={data.publishedAt}>{formatDate(data.publishedAt)}</time>
 				</div>
 				<h1 class="article__title">{data.title}</h1>
 				{#if data.eyecatch}
