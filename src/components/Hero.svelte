@@ -25,9 +25,10 @@
 			ln1.style.transform = `translateX(${-e * 34}vw)`;
 			ln2.style.transform = `translateX(${e * 28}vw)`;
 			copy.style.opacity = String(1 - clamp01((p - 0.3) / 0.45));
-			const f = smooth(clamp01((p - 0.55) / 0.45));
+			// 雲は下側だけに溜める（画面全体を覆うと、ステージが抜けるまで何もない画面が続くため）
+			const f = smooth(clamp01((p - 0.45) / 0.55));
 			fog.style.opacity = String(f);
-			fog.style.setProperty('--fog', `${(f * 100).toFixed(1)}%`);
+			fog.style.setProperty('--fog', `${(f * 18).toFixed(1)}%`);
 		});
 	});
 </script>
