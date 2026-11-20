@@ -1,0 +1,9 @@
+.section {
+	position: relative;
+	padding-block: clamp(96px, 13vw, 180px);
+
+	&--dark {
+		background: var(--slate-700);
+		color: var(--frost-100);
+	}
+}

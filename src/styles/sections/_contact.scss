@@ -1,0 +1,179 @@
+@use '../abstracts/mixins' as *;
+
+// 山頂：月の黄色で締めくくる
+.contact {
+	background: var(--moon);
+	color: var(--slate-800);
+	overflow: hidden;
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1.1fr;
+		gap: clamp(40px, 6vw, 100px);
+	}
+
+	.head__num {
+		color: var(--slate-800);
+	}
+
+	h2 {
+		margin-top: 18px;
+		font: 400 clamp(2.2rem, 4.9vw, 4.9rem)/0.98 var(--display);
+		letter-spacing: -0.01em;
+		color: var(--slate-800);
+		overflow-wrap: normal;
+
+		span {
+			display: block;
+			white-space: nowrap;
+		}
+	}
+
+	&__lead {
+		margin-top: 28px;
+		color: var(--slate-700);
+		max-width: 26em;
+	}
+
+	// 背景の透かし文字
+	&__mark {
+		position: absolute;
+		left: -0.05em;
+		bottom: -0.22em;
+		font: 400 clamp(6rem, 22vw, 22rem)/1 var(--display);
+		color: rgba(47, 61, 65, 0.07);
+		pointer-events: none;
+		white-space: nowrap;
+	}
+
+	@include mq(lg) {
+		&__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+// ---------- Form ----------
+.form {
+	position: relative;
+	display: grid;
+	gap: 22px;
+
+	&__foot {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		margin-top: 6px;
+	}
+
+	&__note {
+		font-size: 0.76rem;
+		color: var(--slate-700);
+
+		a {
+			color: inherit;
+		}
+	}
+
+	&__error {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: #8a2a14;
+	}
+
+	// 送信完了
+	&__done {
+		align-self: center;
+		display: grid;
+		justify-items: start;
+		gap: 12px;
+
+		svg {
+			width: 48px;
+			height: 48px;
+			color: var(--slate-800);
+		}
+
+		h3 {
+			font: 400 clamp(1.6rem, 3vw, 2.2rem)/1.1 var(--display);
+		}
+
+		p {
+			color: var(--slate-700);
+		}
+	}
+}
+
+// ラベルが入力欄の上へ浮く
+.field {
+	position: relative;
+
+	input,
+	textarea {
+		width: 100%;
+		background: transparent;
+		border: 0;
+		border-bottom: 1.5px solid rgba(47, 61, 65, 0.35);
+		border-radius: 0;
+		padding: 26px 0 12px;
+		font: inherit;
+		font-size: 1rem;
+		color: var(--slate-900);
+		transition: border-color 0.3s;
+
+		&:focus {
+			outline: none;
+			border-color: var(--slate-900);
+		}
+	}
+
+	textarea {
+		min-height: 130px;
+		resize: vertical;
+	}
+
+	label {
+		position: absolute;
+		left: 0;
+		top: 26px;
+		font-size: 0.92rem;
+		color: var(--slate-600);
+		pointer-events: none;
+		transition:
+			transform 0.3s var(--ease),
+			font-size 0.3s,
+			color 0.3s;
+	}
+
+	input:focus + label,
+	input:not(:placeholder-shown) + label,
+	textarea:focus + label,
+	textarea:not(:placeholder-shown) + label {
+		transform: translateY(-22px);
+		font-size: 0.74rem;
+		color: var(--slate-800);
+		font-weight: 600;
+		letter-spacing: 0.08em;
+	}
+
+	&__err {
+		display: block;
+		min-height: 1.2em;
+		margin-top: 6px;
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: #8a2a14;
+	}
+
+	&.is-invalid input,
+	&.is-invalid textarea {
+		border-color: #8a2a14;
+	}
+}
+
+// バッジは隠し、フォーム内に規約の文言を載せる
+.grecaptcha-badge {
+	visibility: hidden;
+}

@@ -1,0 +1,223 @@
+@use '../abstracts/mixins' as *;
+
+// スクロールで雲の中へ登っていく：ステージを sticky にして、その間に山へ寄る
+.hero {
+	position: relative;
+	height: 165svh;
+	overflow: clip;
+	background: var(--frost-100);
+
+	&__stage {
+		position: sticky;
+		top: 0;
+		height: 100svh;
+		min-height: 560px;
+		overflow: hidden;
+		display: grid;
+		grid-template-rows: 1fr auto;
+		background: linear-gradient(#e4eaec 0%, #eef2f3 55%, #f2f5f5 100%);
+	}
+
+	&__copy {
+		position: relative;
+		z-index: 3;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto 1fr auto auto;
+		column-gap: 40px;
+		padding-top: calc(var(--header-h) + clamp(28px, 5vh, 56px));
+		padding-bottom: clamp(20px, 3.4vh, 40px);
+		will-change: opacity;
+	}
+
+	&__eyebrow {
+		grid-area: 1 / 1 / 2 / -1;
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		font: 500 0.8rem/1 var(--body);
+		letter-spacing: 0.2em;
+		color: var(--slate-600);
+
+		&::before {
+			content: '';
+			width: 40px;
+			height: 1.5px;
+			background: var(--moon);
+		}
+	}
+
+	&__title {
+		display: contents;
+		--t: min(11.6vw, 170px);
+
+		.ln {
+			display: block;
+			overflow: hidden;
+			white-space: nowrap;
+			overflow-wrap: normal;
+			font: 400 var(--t)/0.9 var(--display);
+			letter-spacing: -0.01em;
+			padding-bottom: 0.04em;
+			will-change: transform;
+
+			&--1 {
+				grid-area: 3 / 1 / 4 / 2;
+				align-self: end;
+			}
+
+			&--2 {
+				grid-area: 4 / 1 / 5 / -1;
+				margin-left: -0.04em;
+			}
+
+			// 文字の中に岩肌を流し込む
+			span {
+				display: inline-block;
+				color: transparent;
+				background:
+					linear-gradient(rgba(47, 61, 65, 0.84), rgba(47, 61, 65, 0.84)),
+					url('/image/main-v.webp') 60% 40% / 170% auto;
+				-webkit-background-clip: text;
+				background-clip: text;
+			}
+
+			// 行ごとに下からせり上がる
+			span.intro {
+				opacity: 1;
+				transform: translateY(105%);
+			}
+		}
+	}
+
+	&__side {
+		grid-area: 3 / 2 / 4 / 3;
+		align-self: end;
+		justify-self: end;
+		max-width: 25em;
+		padding-bottom: calc(var(--t) * 0.1);
+	}
+
+	&__lead {
+		font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+		line-height: 1.95;
+		color: var(--slate-700);
+	}
+
+	&__actions {
+		margin-top: 22px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	// スクロールで下から湧く雲。最後は About の背景色と同じになる
+	&__fog {
+		position: absolute;
+		inset: 0;
+		z-index: 6;
+		pointer-events: none;
+		opacity: 0;
+		background: linear-gradient(
+			to top,
+			#eef2f3 0%,
+			#eef2f3 var(--fog, 0%),
+			rgba(238, 242, 243, 0) calc(var(--fog, 0%) + 40%)
+		);
+	}
+
+	@include mq(sm) {
+		&__copy {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto 1fr auto auto;
+			padding-top: calc(var(--header-h) + 30px);
+		}
+
+		&__title {
+			--t: 11vw;
+
+			.ln--1 {
+				grid-area: 4 / 1 / 5 / 2;
+			}
+
+			.ln--2 {
+				grid-area: 5 / 1 / 6 / 2;
+			}
+		}
+
+		&__side {
+			grid-area: 2 / 1 / 3 / 2;
+			justify-self: start;
+			padding: 18px 0 0;
+		}
+
+		&__lead {
+			font-size: 0.92rem;
+		}
+	}
+
+	@include reduced-motion {
+		height: auto;
+
+		&__stage {
+			position: relative;
+		}
+	}
+}
+
+body.is-ready .hero__title .ln span.intro {
+	transform: none;
+	transition: transform 1.2s var(--ease) var(--d, 0s);
+}
+
+// ---------- 山 ----------
+.scene {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	-webkit-mask-image: linear-gradient(transparent 4%, #000 34%);
+	mask-image: linear-gradient(transparent 4%, #000 34%);
+
+	&__mountain {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 58% 100%;
+		filter: saturate(0.85) contrast(1.06);
+		transform-origin: 60% 80%;
+		will-change: transform;
+	}
+
+	@include mq(sm) {
+		min-height: 46svh;
+	}
+}
+
+.mist {
+	position: absolute;
+	left: -10%;
+	right: -10%;
+	height: 34%;
+	bottom: 6%;
+	background:
+		radial-gradient(60% 100% at 30% 60%, rgba(247, 249, 249, 0.9), transparent 70%),
+		radial-gradient(50% 90% at 75% 70%, rgba(247, 249, 249, 0.8), transparent 70%);
+	filter: blur(6px);
+	animation: mist-drift 26s ease-in-out infinite alternate;
+
+	&--2 {
+		bottom: -4%;
+		height: 40%;
+		opacity: 0.9;
+		animation-duration: 34s;
+		animation-direction: alternate-reverse;
+	}
+}
+
+@keyframes mist-drift {
+	to {
+		transform: translateX(6%);
+	}
+}

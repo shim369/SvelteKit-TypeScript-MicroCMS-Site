@@ -1,0 +1,87 @@
+@use '../abstracts/mixins' as *;
+
+// 標高計：ふもと（Hero）から山頂（Contact）まで、いまどこにいるかを示す
+.altimeter {
+	position: fixed;
+	left: 22px;
+	top: 50%;
+	z-index: 40;
+	transform: translateY(-50%);
+	height: min(56vh, 460px);
+	width: 40px;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.6s;
+
+	&.is-on {
+		opacity: 1;
+	}
+
+	&__scale {
+		position: absolute;
+		left: 8px;
+		top: 0;
+		bottom: 0;
+		width: 8px;
+		background: repeating-linear-gradient(to bottom, var(--slate-400) 0 1px, transparent 1px 12px);
+		opacity: 0.5;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: -4px;
+			top: 0;
+			bottom: 0;
+			width: 1px;
+			background: var(--slate-400);
+		}
+	}
+
+	&__mark {
+		position: absolute;
+		left: 0;
+		width: 22px;
+		height: 1px;
+		background: var(--slate-700);
+
+		span {
+			position: absolute;
+			left: 28px;
+			top: -0.6em;
+			font: 500 0.62rem/1 var(--body);
+			letter-spacing: 0.12em;
+			color: var(--slate-600);
+			white-space: nowrap;
+		}
+	}
+
+	&__pin {
+		position: absolute;
+		left: 4px;
+		top: 0;
+		width: 12px;
+		height: 12px;
+		margin-top: -6px;
+		border-radius: 50%;
+		background: var(--moon);
+		box-shadow: 0 0 0 4px rgba(231, 201, 66, 0.25);
+	}
+
+	&.on-dark {
+		.altimeter__mark {
+			background: var(--frost-200);
+
+			span {
+				color: var(--frost-200);
+			}
+		}
+
+		.altimeter__scale {
+			opacity: 0.35;
+		}
+	}
+
+	@include mq(xl) {
+		display: none;
+	}
+}

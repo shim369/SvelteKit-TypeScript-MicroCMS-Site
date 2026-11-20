@@ -1,0 +1,67 @@
+@use '../abstracts/mixins' as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--header-h);
+}
+
+html,
+body {
+	overflow-x: clip;
+}
+
+body {
+	font-family: var(--body);
+	color: var(--ink);
+	background: var(--frost-100);
+	line-height: 1.8;
+	-webkit-font-smoothing: antialiased;
+	overflow-wrap: anywhere;
+
+	&.is-locked {
+		overflow: hidden;
+	}
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: inherit;
+}
+
+button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+:focus-visible {
+	outline: 2px solid var(--moon);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+@include reduced-motion {
+	html {
+		scroll-behavior: auto;
+	}
+
+	* {
+		animation: none !important;
+		transition: none !important;
+	}
+}

@@ -1,0 +1,112 @@
+@use '../abstracts/mixins' as *;
+
+.about {
+	display: grid;
+	grid-template-columns: 1.05fr 1fr;
+	gap: clamp(40px, 6vw, 96px);
+	align-items: center;
+
+	&__statement {
+		font: 700 clamp(1.6rem, 2.7vw, 2.4rem)/1.55 var(--body);
+		letter-spacing: 0.02em;
+		color: var(--slate-800);
+
+		em {
+			font-style: normal;
+			background: linear-gradient(transparent 62%, rgba(231, 201, 66, 0.55) 62%);
+		}
+	}
+
+	&__text {
+		margin-top: 28px;
+		display: grid;
+		gap: 16px;
+		color: var(--ink-sub);
+		max-width: 34em;
+	}
+
+	&__media {
+		position: relative;
+	}
+
+	// 上が丸いアーチ型の窓
+	&__frame {
+		position: relative;
+		border-radius: 999px 999px 18px 18px;
+		overflow: hidden;
+		aspect-ratio: 4 / 5;
+		background: var(--slate-700);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: grayscale(1) contrast(1.05) brightness(1.08);
+			mix-blend-mode: luminosity;
+			opacity: 0.9;
+			transform: scale(1.08);
+			transition: transform 1.4s var(--ease);
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(180deg, rgba(231, 201, 66, 0) 40%, rgba(63, 81, 86, 0.55));
+			mix-blend-mode: multiply;
+		}
+	}
+
+	&__media.is-in &__frame img {
+		transform: none;
+	}
+
+	&__caption {
+		margin-top: 16px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.78rem;
+		letter-spacing: 0.08em;
+		color: var(--slate-400);
+	}
+
+	@include mq(lg) {
+		grid-template-columns: 1fr;
+
+		&__media {
+			order: -1;
+			max-width: 420px;
+		}
+	}
+}
+
+// 技術構成の一覧
+.spec {
+	margin-top: 40px;
+	border-top: 1px solid var(--line);
+
+	div {
+		display: grid;
+		grid-template-columns: 9em 1fr;
+		gap: 16px;
+		padding: 14px 0;
+		border-bottom: 1px solid var(--line);
+		font-size: 0.92rem;
+	}
+
+	dt {
+		color: var(--slate-400);
+		letter-spacing: 0.06em;
+	}
+
+	dd {
+		color: var(--slate-800);
+		font-weight: 500;
+	}
+
+	@include mq(sm) {
+		div {
+			grid-template-columns: 7em 1fr;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+// 送信完了 / エラー
+.result {
+	min-height: 100svh;
+	display: grid;
+	place-items: center;
+	text-align: center;
+	padding: 40px 20px;
+
+	svg {
+		width: 64px;
+		height: 64px;
+		color: var(--moon);
+		margin: 0 auto 18px;
+	}
+
+	h1 {
+		font: 400 clamp(2rem, 6vw, 3.4rem)/1.2 var(--display);
+		color: var(--frost-50);
+		margin-bottom: 12px;
+	}
+
+	p {
+		color: #b9c6ca;
+		margin-bottom: 32px;
+	}
+}

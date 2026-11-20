@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+// max-width ブレークポイント
+$breakpoints: (
+	sm: 600px,
+	md: 800px,
+	lg: 900px,
+	xl: 1360px
+);
+
+@mixin mq($key) {
+	@media (max-width: map.get($breakpoints, $key)) {
+		@content;
+	}
+}
+
+@mixin reduced-motion {
+	@media (prefers-reduced-motion: reduce) {
+		@content;
+	}
+}

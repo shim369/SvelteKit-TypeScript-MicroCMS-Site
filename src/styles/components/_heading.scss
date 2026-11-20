@@ -1,0 +1,48 @@
+@use '../abstracts/mixins' as *;
+
+// セクション見出し：番号 + 大きな英字 + 日本語の補足
+.head {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: end;
+	gap: 6px 28px;
+	margin-bottom: clamp(48px, 6vw, 80px);
+
+	&__num {
+		grid-row: span 2;
+		align-self: start;
+		font: 400 clamp(1rem, 1.6vw, 1.4rem)/1 var(--display);
+		padding-top: 0.6em;
+		color: var(--moon);
+	}
+
+	&__title {
+		font: 400 clamp(2.8rem, 7.4vw, 6.8rem)/0.9 var(--display);
+		overflow-wrap: normal;
+		letter-spacing: -0.01em;
+		color: var(--slate-700);
+	}
+
+	&__sub {
+		font-size: 0.9rem;
+		color: var(--ink-sub);
+	}
+
+	@include mq(sm) {
+		grid-template-columns: 1fr;
+
+		&__num {
+			grid-row: auto;
+		}
+	}
+}
+
+.section--dark .head {
+	&__title {
+		color: var(--frost-50);
+	}
+
+	&__sub {
+		color: var(--slate-400);
+	}
+}

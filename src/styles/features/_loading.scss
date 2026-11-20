@@ -1,0 +1,57 @@
+@use '../abstracts/mixins' as *;
+
+// 黄色い幕が、山の稜線の形で上がっていく（clip-path の遷移は Loading.svelte で指定）
+.loading {
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	display: grid;
+	place-items: center;
+	background: var(--moon);
+	clip-path: polygon(var(--ridge));
+	transition: clip-path 1.25s var(--ease-io);
+
+	&.is-lift {
+		clip-path: polygon(var(--ridge-up));
+	}
+
+	&__title {
+		font: 400 clamp(2rem, 6vw, 3.6rem)/1 var(--display);
+		color: var(--slate-800);
+		display: flex;
+		overflow: hidden;
+		letter-spacing: 0.03em;
+
+		span {
+			display: inline-block;
+			transform: translateY(110%);
+			animation: loading-up 0.7s var(--ease) forwards;
+		}
+	}
+
+	&__count {
+		position: absolute;
+		left: var(--gutter);
+		bottom: 28px;
+		font: 500 0.8rem/1 var(--body);
+		color: var(--slate-800);
+		letter-spacing: 0.12em;
+		font-variant-numeric: tabular-nums;
+	}
+
+	&.is-lift &__title,
+	&.is-lift &__count {
+		opacity: 0;
+		transition: opacity 0.25s;
+	}
+
+	@include reduced-motion {
+		display: none;
+	}
+}
+
+@keyframes loading-up {
+	to {
+		transform: none;
+	}
+}

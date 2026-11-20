@@ -1,0 +1,67 @@
+@use '../abstracts/mixins' as *;
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	text-decoration: none;
+	font: 500 0.9rem/1 var(--body);
+	letter-spacing: 0.04em;
+	padding: 17px 26px;
+	border-radius: 999px;
+	transition:
+		background 0.3s,
+		color 0.3s,
+		box-shadow 0.3s,
+		transform 0.3s var(--ease);
+
+	svg {
+		width: 16px;
+		height: 16px;
+		transition: transform 0.35s var(--ease);
+	}
+
+	&:hover svg {
+		transform: translateX(4px);
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: wait;
+	}
+
+	&--moon {
+		background: var(--moon);
+		color: var(--slate-800);
+		box-shadow: 0 10px 30px -12px rgba(150, 120, 10, 0.55);
+
+		&:hover {
+			background: #efd55a;
+			transform: translateY(-2px);
+		}
+	}
+
+	&--line {
+		color: var(--slate-700);
+		box-shadow: inset 0 0 0 1.5px var(--slate-600);
+
+		&:hover {
+			background: var(--slate-700);
+			color: var(--frost-50);
+		}
+	}
+
+	&--dark {
+		background: var(--slate-800);
+		color: var(--frost-50);
+
+		&:hover {
+			background: var(--slate-900);
+			transform: translateY(-2px);
+		}
+	}
+
+	@include mq(sm) {
+		padding: 15px 22px;
+	}
+}
