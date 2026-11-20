@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createForm } from 'felte';
-	import { reveal } from '$lib/reveal';
+	import { reveal } from '#lib/reveal.ts';
 
 	const SITE_KEY = '6LeqhF0oAAAAADkJSBBJpobIpl-lVdijocIIDBrB';
 	const MAX = 1000;

@@ -10,7 +10,7 @@
 	import HeaderInner from '../components/HeaderInner.svelte';
 	import Footer from '../components/Footer.svelte';
 	import Contact from '../components/Contact.svelte';
-	import { reveal } from '$lib/reveal';
+	import { reveal } from '#lib/reveal.ts';
 
 	let { data }: { data: PageData } = $props();
 
